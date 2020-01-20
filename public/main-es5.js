@@ -191,7 +191,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"centered-content vertical-center\">\n  <div class=\"task-manager-container\">\n    <div class=\"sidebar has-background-white\">\n      <h1 class=\"title has-text-primary\">\n        Lists\n      </h1>\n\n      <div class=\"list-menu-scroll\" id=\"scroll-list\">\n        <div class=\"list-menu\">\n          <a\n            class=\"list-menu-item\"\n            *ngFor=\"let list of lists\"\n            [routerLink]=\"['/lists', list._id]\"\n            routerLinkActive=\"is-active\"\n          >\n            <p>{{ list.title }}</p>\n          </a>\n        </div>\n      </div>\n\n      <button\n        class=\"button button-list is-primary has-text-white\"\n        routerLink=\"/new-list\"\n      >\n        + New List\n      </button>\n    </div>\n\n    <div class=\"task-list-container  has-background-light\">\n      <div *ngIf=\"tasks\">\n        <div class=\"top-bar\">\n          <h1 class=\"title has-text-primary\">\n            Tasks\n          </h1>\n          <div class=\"dropdown is-hoverable is-right\">\n            <div class=\"dropdown-trigger\">\n              <button class=\"button\" aria-haspopup=\"true\">\n                <span class=\"icon is-small\">\n                  <i class=\"fas fa-cog\"></i>\n                </span>\n              </button>\n            </div>\n            <div class=\"dropdown-menu\" id=\"dropdown-menu4\" role=\"menu\">\n              <div class=\"dropdown-content\">\n                <a [routerLink]=\"['/edit-list', selectedListId]\" class=\"dropdown-item\">\n                  Edit\n                </a>\n                <a (click)=\"onDeleteListClick()\" class=\"dropdown-item has-text-danger\">\n                  Delete\n                </a>\n              </div>\n            </div>\n          </div>\n        </div>\n\n        <!-- Task elements -->\n        <div class=\"task-menu-scroll\" id=\"scroll-task\">\n          <div\n            class=\"task\"\n            *ngFor=\"let task of tasks\"\n            (click)=\"onTaskClick(task)\"\n            [ngClass]=\"{ 'completed': task.completed }\"\n          >\n\n            <div class=\"task-text\">\n              <p>{{ task.title }}</p>\n            </div>\n\n            <div class=\"task-buttons\">\n              <button class=\"button\" [routerLink]=\"['/lists', selectedListId, 'edit-task', task._id]\">\n                <div class=\"icon edit\">\n                  <i class=\"fas fa-edit\"></i>\n                </div>\n              </button>\n              <button class=\"button\" (click)=\"onDeleteTaskClick(task._id)\">\n                <div class=\"icon trash\">\n                  <i class=\"fas fa-trash\"></i>\n                </div>\n              </button>\n            </div>\n          </div>\n        </div>\n\n        <h3 class=\"empty-state-text empty-task\" *ngIf=\"tasks.length === 0\">No tasks available. <br> click  <i class=\"fa fa-plus\"></i>  button to add a new task</h3>\n\n        <button\n          class=\"circle-add-button button is-primary\"\n          routerLink=\"./new-task\"\n        >\n          <!-- <fa name=\"fas fa-plus\"></fa> -->\n          <i class=\"fas fa-plus\"></i>\n        </button>\n      </div>\n      <div *ngIf=\"!tasks\">\n        <h3 class=\"empty-state-text\">Please select a list to view the tasks</h3>\n      </div>\n    </div>\n  </div>\n</div>\n";
+    __webpack_exports__["default"] = "<div>\n  <div class=\"profile\">\n    <i class=\"fa-user\"></i>\n  </div>\n  <div class=\"centered-content vertical-center\">\n    <div class=\"task-manager-container\">\n      <div class=\"sidebar has-background-white\">\n        <h1 class=\"title title-list has-text-primary\">\n          Lists\n        </h1>\n\n        <div class=\"list-menu-scroll\" id=\"scroll-list\">\n          <div class=\"list-menu\">\n            <a\n              class=\"list-menu-item\"\n              *ngFor=\"let list of lists\"\n              [routerLink]=\"['/lists', list._id]\"\n              routerLinkActive=\"is-active\"\n            >\n              <p>{{ list.title }}</p>\n            </a>\n          </div>\n        </div>\n\n        <button\n          class=\"button button-list is-primary has-text-white\"\n          routerLink=\"/new-list\"\n        >\n          + New List\n        </button>\n      </div>\n\n      <div class=\"task-list-container  has-background-light\">\n        <div *ngIf=\"tasks\">\n          <div class=\"top-bar\">\n            <h1 class=\"title title-task has-text-primary\">\n              Tasks\n            </h1>\n            <div class=\"dropdown is-hoverable is-right\">\n              <div class=\"dropdown-trigger\">\n                <button class=\"button\" aria-haspopup=\"true\">\n                  <span class=\"icon is-small\">\n                    <i class=\"fas fa-bars\"></i>\n                  </span>\n                </button>\n              </div>\n              <div class=\"dropdown-menu\" id=\"dropdown-menu4\" role=\"menu\">\n                <div class=\"dropdown-content\">\n                  <a\n                    [routerLink]=\"['/edit-list', selectedListId]\"\n                    class=\"dropdown-item\"\n                  >\n                    Edit list\n                  </a>\n                  <a\n                    (click)=\"onDeleteListClick()\"\n                    class=\"dropdown-item has-text-danger\"\n                  >\n                    Delete list\n                  </a>\n                  <a\n                    (click)=\"onLogoutClick()\"\n                    class=\"dropdown-item\"\n                    id=\"logout-link\"\n                  >\n                    <i class=\"fas fa-sign-out-alt\"></i>\n                    Log out\n                  </a>\n                </div>\n              </div>\n            </div>\n          </div>\n\n          <!-- Task elements -->\n          <div class=\"task-menu-scroll\" id=\"scroll-task\">\n            <div\n              class=\"task\"\n              *ngFor=\"let task of tasks\"\n              (click)=\"onTaskClick(task)\"\n              [ngClass]=\"{ completed: task.completed }\"\n            >\n              <div class=\"task-text\">\n                <p>{{ task.title }}</p>\n              </div>\n\n              <div class=\"task-buttons\">\n                <button\n                  class=\"button\"\n                  [routerLink]=\"[\n                    '/lists',\n                    selectedListId,\n                    'edit-task',\n                    task._id\n                  ]\"\n                >\n                  <div class=\"icon edit\">\n                    <i class=\"fas fa-edit\"></i>\n                  </div>\n                </button>\n                <button class=\"button\" (click)=\"onDeleteTaskClick(task._id)\">\n                  <div class=\"icon trash\">\n                    <i class=\"fas fa-trash\"></i>\n                  </div>\n                </button>\n              </div>\n            </div>\n          </div>\n\n          <div *ngIf=\"tasks.length === 0\">\n            <h3 class=\"empty-state-text empty-task\">\n              No tasks available. <br />\n              click <i class=\"fa fa-plus\"></i> button to add a new task\n            </h3>\n          </div>\n\n          <button\n            class=\"circle-add-button button is-primary\"\n            routerLink=\"./new-task\"\n          >\n            <!-- <fa name=\"fas fa-plus\"></fa> -->\n            <i class=\"fas fa-plus\"></i>\n          </button>\n        </div>\n        <div *ngIf=\"!tasks\">\n          <h3 class=\"empty-state-text\">\n            Please select a list to view the tasks\n          </h3>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
     /***/
   },
 
@@ -831,28 +831,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _pages_edit_task_edit_task_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! ./pages/edit-task/edit-task.component */
-    "./src/app/pages/edit-task/edit-task.component.ts"); // import { NgModule } from "@angular/core";
-    // import { Routes, RouterModule } from "@angular/router";
-    // import { TaskViewComponent } from "./pages/task-view/task-view.component";
-    // import { NewListComponent } from "./pages/new-list/new-list.component";
-    // import { NewTaskComponent } from "./pages/new-task/new-task.component";
-    // import { LoginPageComponent } from './pages/login-page/login-page.component';
-    // import { SignupPageComponent } from './pages/signup-page/signup-page.component';
-    // const routes: Routes = [
-    //   { path: "", redirectTo: "/lists", pathMatch: "full" },
-    //   { path: "new-list", component: NewListComponent },
-    //   { path: "login", component: LoginPageComponent },
-    //   { path: "signup", component: SignupPageComponent },
-    //   { path: "lists", component: TaskViewComponent },
-    //   { path: "lists/:listId", component: TaskViewComponent },
-    //   { path: "lists/:listId/new-task", component: NewTaskComponent }
-    // ];
-    // @NgModule({
-    //   imports: [RouterModule.forRoot(routes)],
-    //   exports: [RouterModule]
-    // })
-    // export class AppRoutingModule {}
-
+    "./src/app/pages/edit-task/edit-task.component.ts");
 
     var routes = [{
       path: '',
@@ -1942,11 +1921,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "onSignupButtonClicked",
         value: function onSignupButtonClicked(email, password) {
+          var _this12 = this;
+
           this.authService.signup(email, password).subscribe(function (res) {
-            // if (res.status === 200) {
-            //   // we have logged in successfully
-            //   this.router.navigate(['/lists'])
-            // }
+            if (res.status === 200) {
+              // we have logged in successfully
+              _this12.router.navigate(['/lists']);
+            }
+
             console.log(res);
           });
         }
@@ -1991,7 +1973,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "html {\n  background: -webkit-gradient(linear, left bottom, right top, from(rgba(20, 41, 87, 0.842)), to(rgba(35, 71, 139, 0.918)));\n  background: linear-gradient(to right top, rgba(20, 41, 87, 0.842), rgba(35, 71, 139, 0.918));\n  font-family: \"roboto\";\n}\n\nhtml, body {\n  height: 100%;\n}\n\n.centered-content {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  width: 100%;\n  height: 80%;\n}\n\n.vertical-center {\n  position: absolute;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n\n.modal-box {\n  min-height: 200px;\n  width: 100%;\n  max-width: 600px;\n  background: white;\n  border-radius: 5px;\n  padding: 35px;\n}\n\n.title {\n  font-family: \"Segoe UI\";\n  font-size: 26px;\n  font-weight: bold;\n  letter-spacing: 2px;\n  text-transform: uppercase;\n}\n\n.white-box {\n  padding: 40px;\n  background: white;\n  border-radius: 5px;\n  width: 400px;\n}\n\n* {\n  font-family: \"Segoe UI\";\n}\n\n.task-manager-container {\n  display: -webkit-box;\n  display: flex;\n  width: 100%;\n  height: 100%;\n  max-width: 1000px;\n  max-height: 680px;\n}\n\n.sidebar {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  width: 250px;\n  background: #ffffff;\n  padding: 30px;\n  border-top-left-radius: 8px;\n  border-bottom-left-radius: 8px;\n}\n\n.task-list-container {\n  position: relative;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  padding: 30px;\n  border-top-right-radius: 8px;\n  border-bottom-right-radius: 8px;\n}\n\n.task-list-container .top-bar {\n  margin-bottom: 20px;\n  display: -webkit-box;\n  display: flex;\n}\n\n.task-list-container .top-bar .title {\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  margin: 0;\n}\n\n.list-menu-scroll {\n  padding-right: 20px;\n  width: 200px;\n  height: 100%;\n  margin-top: 0px;\n  margin-bottom: 40px;\n  overflow-y: scroll;\n}\n\n#scroll-list::-webkit-scrollbar {\n  width: 6px;\n  background: rgba(255, 255, 255, 0);\n}\n\n#scroll-list::-webkit-scrollbar-thumb {\n  z-index: 10000;\n  background-color: #b9b9b9;\n}\n\n#scroll-list::-webkit-scrollbar-track {\n  box-shadow: none;\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n  background-color: rgba(255, 255, 255, 0);\n}\n\n.list-menu {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  margin-top: 4px;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  font-size: 18px;\n}\n\n.list-menu .list-menu-item {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  padding: 8px 15px;\n  border-radius: 5px;\n  width: 100%;\n  color: #5f5f5f;\n  margin-bottom: 5px;\n}\n\n.list-menu .list-menu-item:hover {\n  background: #f3f3f3;\n}\n\n.list-menu .list-menu-item.is-active {\n  background: #e0e5ff;\n  color: rgba(9, 35, 92, 0.904);\n}\n\n.button-list {\n  margin-top: -20px;\n}\n\n.task {\n  display: -webkit-box;\n  display: flex;\n  background: white;\n  padding: 8px 20px;\n  border-radius: 5px;\n  margin-top: 6px;\n  font-size: 18px;\n  -webkit-box-align: center;\n          align-items: center;\n}\n\n.task:not(.complete) {\n  cursor: pointer;\n  -webkit-transition: box-shadow 0.2s ease, -webkit-transform 0.2s ease;\n  transition: box-shadow 0.2s ease, -webkit-transform 0.2s ease;\n  transition: box-shadow 0.2s ease, transform 0.2s ease;\n  transition: box-shadow 0.2s ease, transform 0.2s ease, -webkit-transform 0.2s ease;\n}\n\n.task:not(.complete):active {\n  -webkit-transform: scale(0.99);\n          transform: scale(0.99);\n}\n\n.task:not(.complete):hover {\n  box-shadow: 0 0 0 5px #ebebeb;\n}\n\n.task:not(.complete):hover .task-buttons {\n  opacity: 1;\n  -webkit-transform: scale(1);\n          transform: scale(1);\n}\n\n.task.completed .task-text {\n  text-decoration: line-through;\n  opacity: 0.8;\n}\n\n.task .task-text {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n}\n\n.task .task-buttons {\n  -webkit-transition: opacity 0.2s, -webkit-transform 0.2s;\n  transition: opacity 0.2s, -webkit-transform 0.2s;\n  transition: opacity 0.2s, transform 0.2s;\n  transition: opacity 0.2s, transform 0.2s, -webkit-transform 0.2s;\n  opacity: 0;\n  -webkit-transform: scale(0.85);\n          transform: scale(0.85);\n}\n\n.task .task-buttons button {\n  background: none;\n  border: none;\n}\n\n.task .task-buttons .icon {\n  margin-left: 0px;\n  background: white;\n  color: #344b75;\n}\n\n.task .task-buttons .trash {\n  color: #ee6262;\n}\n\n.task-menu-scroll {\n  padding: 10px 30px 20px 30px;\n  margin-top: -10px;\n  margin-bottom: 60px;\n  overflow-y: scroll;\n}\n\n#scroll-task::-webkit-scrollbar {\n  width: 6px;\n  background: rgba(255, 255, 255, 0);\n}\n\n#scroll-task::-webkit-scrollbar-thumb {\n  z-index: 10000;\n  background-color: #b9b9b9;\n}\n\n#scroll-task::-webkit-scrollbar-track {\n  box-shadow: none;\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n  background-color: rgba(255, 255, 255, 0);\n}\n\n.circle-add-button {\n  position: absolute;\n  bottom: 30px;\n  right: 30px;\n  height: 40px;\n  width: 40px;\n  border-radius: 50%;\n}\n\n.empty-state-text {\n  margin-top: 250px;\n  font-size: 18px;\n  color: silver;\n  text-align: center;\n}\n\n.empty-task {\n  margin-top: 160px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvdGFzay12aWV3L0M6XFxVc2Vyc1xcRGVsbFxcRGVza3RvcFxcV2ViRGV2XFxQcm9qZWN0c1xcTG9jYWwgUHJvamVjdHNcXHRhc2stbWFuYWdlclxcZnJvbnRlbmQvc3JjXFxtYWluLXN0eWxlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL3Rhc2stdmlldy90YXNrLXZpZXcuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3BhZ2VzL3Rhc2stdmlldy9DOlxcVXNlcnNcXERlbGxcXERlc2t0b3BcXFdlYkRldlxcUHJvamVjdHNcXExvY2FsIFByb2plY3RzXFx0YXNrLW1hbmFnZXJcXGZyb250ZW5kL3NyY1xcYXBwXFxwYWdlc1xcdGFzay12aWV3XFx0YXNrLXZpZXcuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBcUJBO0VBQ0UseUhBQUE7RUFBQSw0RkFBQTtFQUNBLHFCQWJjO0FDUGhCOztBRHVCQTtFQUNFLFlBQUE7QUNwQkY7O0FEdUJBO0VBQ0Usb0JBQUE7RUFBQSxhQUFBO0VBQ0Esd0JBQUE7VUFBQSx1QkFBQTtFQUNBLHlCQUFBO1VBQUEsbUJBQUE7RUFDQSxXQUFBO0VBQ0EsV0FBQTtBQ3BCRjs7QURzQkE7RUFFRSxrQkFBQTtFQUNBLFFBQUE7RUFFQSxtQ0FBQTtVQUFBLDJCQUFBO0FDcEJGOztBRHVCQTtFQUNFLGlCQUFBO0VBQ0EsV0FBQTtFQUNBLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtFQUNBLGFBQUE7QUNwQkY7O0FEdUJBO0VBQ0UsdUJBQUE7RUFDQSxlQUFBO0VBQ0EsaUJBQUE7RUFDQSxtQkFBQTtFQUNBLHlCQUFBO0FDcEJGOztBRHVCQTtFQUNFLGFBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0EsWUFBQTtBQ3BCRjs7QUM1Q0E7RUFDRSx1QkFBQTtBRCtDRjs7QUM1Q0E7RUFDRSxvQkFBQTtFQUFBLGFBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGlCQUFBO0VBQ0EsaUJBQUE7QUQrQ0Y7O0FDNUNBO0VBQ0Usb0JBQUE7RUFBQSxhQUFBO0VBQ0EsNEJBQUE7RUFBQSw2QkFBQTtVQUFBLHNCQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0VBQ0EsYUFBQTtFQUNBLDJCQUFBO0VBQ0EsOEJBQUE7QUQrQ0Y7O0FDNUNBO0VBQ0Usa0JBQUE7RUFDQSxvQkFBQTtFQUFBLGFBQUE7RUFDQSw0QkFBQTtFQUFBLDZCQUFBO1VBQUEsc0JBQUE7RUFDQSxtQkFBQTtVQUFBLFlBQUE7RUFDQSxhQUFBO0VBQ0EsNEJBQUE7RUFDQSwrQkFBQTtBRCtDRjs7QUM1Q0U7RUFDRSxtQkFBQTtFQUNBLG9CQUFBO0VBQUEsYUFBQTtBRDhDSjs7QUM3Q0k7RUFDRSxtQkFBQTtVQUFBLFlBQUE7RUFDQSxTQUFBO0FEK0NOOztBQzFDQTtFQUNFLG1CQUFBO0VBQ0EsWUFBQTtFQUNBLFlBQUE7RUFDQSxlQUFBO0VBQ0EsbUJBQUE7RUFDQSxrQkFBQTtBRDZDRjs7QUMxQ0E7RUFDRSxVQUFBO0VBQ0Esa0NBQUE7QUQ2Q0Y7O0FDM0NBO0VBQ0UsY0FBQTtFQUNBLHlCQUFBO0FEOENGOztBQzVDQTtFQUNFLGdCQUFBO0VBQ0Esb0RBQUE7RUFDQSx3Q0FBQTtBRCtDRjs7QUM1Q0E7RUFDRSxvQkFBQTtFQUFBLGFBQUE7RUFDQSw0QkFBQTtFQUFBLDZCQUFBO1VBQUEsc0JBQUE7RUFDQSxlQUFBO0VBQ0EsbUJBQUE7VUFBQSxZQUFBO0VBQ0EsZUFBQTtBRCtDRjs7QUM3Q0U7RUFDRSxvQkFBQTtFQUFBLGFBQUE7RUFDQSx5QkFBQTtVQUFBLG1CQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxjQUFBO0VBQ0Esa0JBQUE7QUQrQ0o7O0FDN0NJO0VBQ0UsbUJGOUVFO0FDNkhSOztBQzVDSTtFQUNFLG1CQUFBO0VBQ0EsNkJGcEZNO0FDa0laOztBQ3pDQTtFQUdFLGlCQUFBO0FEMENGOztBQ3ZDQTtFQUNFLG9CQUFBO0VBQUEsYUFBQTtFQUNBLGlCQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtFQUNBLGVBQUE7RUFDQSxlQUFBO0VBQ0EseUJBQUE7VUFBQSxtQkFBQTtBRDBDRjs7QUN4Q0U7RUFDRSxlQUFBO0VBQ0EscUVBQUE7RUFBQSw2REFBQTtFQUFBLHFEQUFBO0VBQUEsa0ZBQUE7QUQwQ0o7O0FDeENJO0VBQ0UsOEJBQUE7VUFBQSxzQkFBQTtBRDBDTjs7QUN2Q0k7RUFDRSw2QkFBQTtBRHlDTjs7QUN2Q007RUFDRSxVQUFBO0VBQ0EsMkJBQUE7VUFBQSxtQkFBQTtBRHlDUjs7QUNwQ0U7RUFDRSw2QkFBQTtFQUNBLFlBQUE7QURzQ0o7O0FDbkNFO0VBQ0Usb0JBQUE7RUFBQSxhQUFBO0VBQ0EsbUJBQUE7VUFBQSxZQUFBO0FEcUNKOztBQ25DRTtFQUNFLHdEQUFBO0VBQUEsZ0RBQUE7RUFBQSx3Q0FBQTtFQUFBLGdFQUFBO0VBQ0EsVUFBQTtFQUNBLDhCQUFBO1VBQUEsc0JBQUE7QURxQ0o7O0FDbENFO0VBQ0UsZ0JBQUE7RUFDQSxZQUFBO0FEb0NKOztBQ2xDRTtFQUNFLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxjQUFBO0FEb0NKOztBQ2xDRTtFQUNFLGNBQUE7QURvQ0o7O0FDaENBO0VBQ0UsNEJBQUE7RUFDQSxpQkFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7QURtQ0Y7O0FDaENBO0VBQ0UsVUFBQTtFQUNBLGtDQUFBO0FEbUNGOztBQ2pDQTtFQUNFLGNBQUE7RUFDQSx5QkFBQTtBRG9DRjs7QUNsQ0E7RUFDRSxnQkFBQTtFQUNBLG9EQUFBO0VBQ0Esd0NBQUE7QURxQ0Y7O0FDbENBO0VBQ0Usa0JBQUE7RUFDQSxZQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7QURxQ0Y7O0FDbENBO0VBQ0UsaUJBQUE7RUFDQSxlQUFBO0VBQ0EsYUFBQTtFQUNBLGtCQUFBO0FEcUNGOztBQ2xDQTtFQUNFLGlCQUFBO0FEcUNGIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvdGFzay12aWV3L3Rhc2stdmlldy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi8vIEdsb2JhbCBzdHlsZXMgYW5kIFZhcmlhYmxlc1xyXG5cclxuJGluZGlnbzogcmdiYSgyMywgMjksIDUxLCAwLjg3KTtcclxuJGJsdWU6IHJnYmEoMjAsIDQxLCA4NywgMC44NDIpO1xyXG4kbGlnaHQtYmx1ZTogcmdiYSgzNSwgNzEsIDEzOSwgMC45MTgpO1xyXG4kZGFyay1ibHVlOiByZ2JhKDksIDM1LCA5MiwgMC45MDQpO1xyXG4kbGlnaHQ6IHJnYigyNDMsIDI0MywgMjQzKTtcclxuXHJcblxyXG4vLyBVcGRhdGUgQnVsbWEncyBnbG9iYWwgdmFyaWFibGVzXHJcbiRmYW1pbHktcm9ib3RvOiAncm9ib3RvJztcclxuJHByaW1hcnk6ICRibHVlO1xyXG4kbGluazogJGxpZ2h0LWJsdWU7XHJcblxyXG4vLyBVcGRhdGUgQnVsbWEncyBjb21wb25lbnQgdmFyaWFibGVzXHJcbiRjb250cm9sLWJvcmRlci13aWR0aDogMnB4O1xyXG4kaW5wdXQtYm9yZGVyLWNvbG9yOiB0cmFuc3BhcmVudDtcclxuJGlucHV0LXNoYWRvdzogbm9uZTtcclxuXHJcbi8vIFNldHRpbmcgY3VzdG9tIEdsb2JhbCBzdHlsZXMgKGFwcGxpZWQgZm9yIHRoZSB3aG9sZSBhcHBsaWNhdGlvbilcclxuXHJcbmh0bWwge1xyXG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCh0byByaWdodCB0b3AsICRibHVlLCAkbGlnaHQtYmx1ZSk7XHJcbiAgZm9udC1mYW1pbHk6ICRmYW1pbHktcm9ib3RvO1xyXG59XHJcblxyXG5odG1sLCBib2R5e1xyXG4gIGhlaWdodDogMTAwJTtcclxufVxyXG5cclxuLmNlbnRlcmVkLWNvbnRlbnR7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogODAlO1xyXG59XHJcbi52ZXJ0aWNhbC1jZW50ZXIge1xyXG4gIC8vIG1hcmdpbjogMDtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgdG9wOiA1MCU7XHJcbiAgLW1zLXRyYW5zZm9ybTogdHJhbnNsYXRlWSgtNTAlKTtcclxuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoLTUwJSk7XHJcbn1cclxuXHJcbi5tb2RhbC1ib3h7XHJcbiAgbWluLWhlaWdodDogMjAwcHg7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgbWF4LXdpZHRoOiA2MDBweDtcclxuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgcGFkZGluZzogMzVweDtcclxufSAgXHJcblxyXG4udGl0bGV7XHJcbiAgZm9udC1mYW1pbHk6ICdTZWdvZSBVSSc7XHJcbiAgZm9udC1zaXplOiAyNnB4O1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIGxldHRlci1zcGFjaW5nOiAycHg7XHJcbiAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcclxufVxyXG5cclxuLndoaXRlLWJveHtcclxuICBwYWRkaW5nOiA0MHB4O1xyXG4gIGJhY2tncm91bmQ6IHdoaXRlO1xyXG4gIGJvcmRlci1yYWRpdXM6IDVweDtcclxuICB3aWR0aDogNDAwcHg7XHJcbn0iLCJodG1sIHtcbiAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KHRvIHJpZ2h0IHRvcCwgcmdiYSgyMCwgNDEsIDg3LCAwLjg0MiksIHJnYmEoMzUsIDcxLCAxMzksIDAuOTE4KSk7XG4gIGZvbnQtZmFtaWx5OiBcInJvYm90b1wiO1xufVxuXG5odG1sLCBib2R5IHtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuXG4uY2VudGVyZWQtY29udGVudCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiA4MCU7XG59XG5cbi52ZXJ0aWNhbC1jZW50ZXIge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHRvcDogNTAlO1xuICAtbXMtdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC01MCUpO1xuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoLTUwJSk7XG59XG5cbi5tb2RhbC1ib3gge1xuICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgd2lkdGg6IDEwMCU7XG4gIG1heC13aWR0aDogNjAwcHg7XG4gIGJhY2tncm91bmQ6IHdoaXRlO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIHBhZGRpbmc6IDM1cHg7XG59XG5cbi50aXRsZSB7XG4gIGZvbnQtZmFtaWx5OiBcIlNlZ29lIFVJXCI7XG4gIGZvbnQtc2l6ZTogMjZweDtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gIGxldHRlci1zcGFjaW5nOiAycHg7XG4gIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XG59XG5cbi53aGl0ZS1ib3gge1xuICBwYWRkaW5nOiA0MHB4O1xuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICB3aWR0aDogNDAwcHg7XG59XG5cbioge1xuICBmb250LWZhbWlseTogXCJTZWdvZSBVSVwiO1xufVxuXG4udGFzay1tYW5hZ2VyLWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIG1heC13aWR0aDogMTAwMHB4O1xuICBtYXgtaGVpZ2h0OiA2ODBweDtcbn1cblxuLnNpZGViYXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICB3aWR0aDogMjUwcHg7XG4gIGJhY2tncm91bmQ6ICNmZmZmZmY7XG4gIHBhZGRpbmc6IDMwcHg7XG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDhweDtcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogOHB4O1xufVxuXG4udGFzay1saXN0LWNvbnRhaW5lciB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgZmxleC1ncm93OiAxO1xuICBwYWRkaW5nOiAzMHB4O1xuICBib3JkZXItdG9wLXJpZ2h0LXJhZGl1czogOHB4O1xuICBib3JkZXItYm90dG9tLXJpZ2h0LXJhZGl1czogOHB4O1xufVxuLnRhc2stbGlzdC1jb250YWluZXIgLnRvcC1iYXIge1xuICBtYXJnaW4tYm90dG9tOiAyMHB4O1xuICBkaXNwbGF5OiBmbGV4O1xufVxuLnRhc2stbGlzdC1jb250YWluZXIgLnRvcC1iYXIgLnRpdGxlIHtcbiAgZmxleC1ncm93OiAxO1xuICBtYXJnaW46IDA7XG59XG5cbi5saXN0LW1lbnUtc2Nyb2xsIHtcbiAgcGFkZGluZy1yaWdodDogMjBweDtcbiAgd2lkdGg6IDIwMHB4O1xuICBoZWlnaHQ6IDEwMCU7XG4gIG1hcmdpbi10b3A6IDBweDtcbiAgbWFyZ2luLWJvdHRvbTogNDBweDtcbiAgb3ZlcmZsb3cteTogc2Nyb2xsO1xufVxuXG4jc2Nyb2xsLWxpc3Q6Oi13ZWJraXQtc2Nyb2xsYmFyIHtcbiAgd2lkdGg6IDZweDtcbiAgYmFja2dyb3VuZDogcmdiYSgyNTUsIDI1NSwgMjU1LCAwKTtcbn1cblxuI3Njcm9sbC1saXN0Ojotd2Via2l0LXNjcm9sbGJhci10aHVtYiB7XG4gIHotaW5kZXg6IDEwMDAwO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjYjliOWI5O1xufVxuXG4jc2Nyb2xsLWxpc3Q6Oi13ZWJraXQtc2Nyb2xsYmFyLXRyYWNrIHtcbiAgYm94LXNoYWRvdzogbm9uZTtcbiAgLXdlYmtpdC1ib3gtc2hhZG93OiBpbnNldCAwIDAgNnB4IHJnYmEoMCwgMCwgMCwgMC4zKTtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyNTUsIDI1NSwgMjU1LCAwKTtcbn1cblxuLmxpc3QtbWVudSB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIG1hcmdpbi10b3A6IDRweDtcbiAgZmxleC1ncm93OiAxO1xuICBmb250LXNpemU6IDE4cHg7XG59XG4ubGlzdC1tZW51IC5saXN0LW1lbnUtaXRlbSB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIHBhZGRpbmc6IDhweCAxNXB4O1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIHdpZHRoOiAxMDAlO1xuICBjb2xvcjogIzVmNWY1ZjtcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xufVxuLmxpc3QtbWVudSAubGlzdC1tZW51LWl0ZW06aG92ZXIge1xuICBiYWNrZ3JvdW5kOiAjZjNmM2YzO1xufVxuLmxpc3QtbWVudSAubGlzdC1tZW51LWl0ZW0uaXMtYWN0aXZlIHtcbiAgYmFja2dyb3VuZDogI2UwZTVmZjtcbiAgY29sb3I6IHJnYmEoOSwgMzUsIDkyLCAwLjkwNCk7XG59XG5cbi5idXR0b24tbGlzdCB7XG4gIG1hcmdpbi10b3A6IC0yMHB4O1xufVxuXG4udGFzayB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGJhY2tncm91bmQ6IHdoaXRlO1xuICBwYWRkaW5nOiA4cHggMjBweDtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBtYXJnaW4tdG9wOiA2cHg7XG4gIGZvbnQtc2l6ZTogMThweDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn1cbi50YXNrOm5vdCguY29tcGxldGUpIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xuICB0cmFuc2l0aW9uOiBib3gtc2hhZG93IDAuMnMgZWFzZSwgdHJhbnNmb3JtIDAuMnMgZWFzZTtcbn1cbi50YXNrOm5vdCguY29tcGxldGUpOmFjdGl2ZSB7XG4gIHRyYW5zZm9ybTogc2NhbGUoMC45OSk7XG59XG4udGFzazpub3QoLmNvbXBsZXRlKTpob3ZlciB7XG4gIGJveC1zaGFkb3c6IDAgMCAwIDVweCAjZWJlYmViO1xufVxuLnRhc2s6bm90KC5jb21wbGV0ZSk6aG92ZXIgLnRhc2stYnV0dG9ucyB7XG4gIG9wYWNpdHk6IDE7XG4gIHRyYW5zZm9ybTogc2NhbGUoMSk7XG59XG4udGFzay5jb21wbGV0ZWQgLnRhc2stdGV4dCB7XG4gIHRleHQtZGVjb3JhdGlvbjogbGluZS10aHJvdWdoO1xuICBvcGFjaXR5OiAwLjg7XG59XG4udGFzayAudGFzay10ZXh0IHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1ncm93OiAxO1xufVxuLnRhc2sgLnRhc2stYnV0dG9ucyB7XG4gIHRyYW5zaXRpb246IG9wYWNpdHkgMC4ycywgdHJhbnNmb3JtIDAuMnM7XG4gIG9wYWNpdHk6IDA7XG4gIHRyYW5zZm9ybTogc2NhbGUoMC44NSk7XG59XG4udGFzayAudGFzay1idXR0b25zIGJ1dHRvbiB7XG4gIGJhY2tncm91bmQ6IG5vbmU7XG4gIGJvcmRlcjogbm9uZTtcbn1cbi50YXNrIC50YXNrLWJ1dHRvbnMgLmljb24ge1xuICBtYXJnaW4tbGVmdDogMHB4O1xuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcbiAgY29sb3I6ICMzNDRiNzU7XG59XG4udGFzayAudGFzay1idXR0b25zIC50cmFzaCB7XG4gIGNvbG9yOiAjZWU2MjYyO1xufVxuXG4udGFzay1tZW51LXNjcm9sbCB7XG4gIHBhZGRpbmc6IDEwcHggMzBweCAyMHB4IDMwcHg7XG4gIG1hcmdpbi10b3A6IC0xMHB4O1xuICBtYXJnaW4tYm90dG9tOiA2MHB4O1xuICBvdmVyZmxvdy15OiBzY3JvbGw7XG59XG5cbiNzY3JvbGwtdGFzazo6LXdlYmtpdC1zY3JvbGxiYXIge1xuICB3aWR0aDogNnB4O1xuICBiYWNrZ3JvdW5kOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDApO1xufVxuXG4jc2Nyb2xsLXRhc2s6Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1iIHtcbiAgei1pbmRleDogMTAwMDA7XG4gIGJhY2tncm91bmQtY29sb3I6ICNiOWI5Yjk7XG59XG5cbiNzY3JvbGwtdGFzazo6LXdlYmtpdC1zY3JvbGxiYXItdHJhY2sge1xuICBib3gtc2hhZG93OiBub25lO1xuICAtd2Via2l0LWJveC1zaGFkb3c6IGluc2V0IDAgMCA2cHggcmdiYSgwLCAwLCAwLCAwLjMpO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDApO1xufVxuXG4uY2lyY2xlLWFkZC1idXR0b24ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGJvdHRvbTogMzBweDtcbiAgcmlnaHQ6IDMwcHg7XG4gIGhlaWdodDogNDBweDtcbiAgd2lkdGg6IDQwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbn1cblxuLmVtcHR5LXN0YXRlLXRleHQge1xuICBtYXJnaW4tdG9wOiAyNTBweDtcbiAgZm9udC1zaXplOiAxOHB4O1xuICBjb2xvcjogc2lsdmVyO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5lbXB0eS10YXNrIHtcbiAgbWFyZ2luLXRvcDogMTYwcHg7XG59IiwiQGltcG9ydCBcIi4uLy4uLy4uL21haW4tc3R5bGUuc2Nzc1wiO1xyXG5cclxuKiB7XHJcbiAgZm9udC1mYW1pbHk6IFwiU2Vnb2UgVUlcIjtcclxufVxyXG5cclxuLnRhc2stbWFuYWdlci1jb250YWluZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIG1heC13aWR0aDogMTAwMHB4O1xyXG4gIG1heC1oZWlnaHQ6IDY4MHB4O1xyXG59XHJcblxyXG4uc2lkZWJhciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gIHdpZHRoOiAyNTBweDtcclxuICBiYWNrZ3JvdW5kOiAjZmZmZmZmO1xyXG4gIHBhZGRpbmc6IDMwcHg7XHJcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogOHB4O1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDhweDtcclxufVxyXG5cclxuLnRhc2stbGlzdC1jb250YWluZXIge1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIHBhZGRpbmc6IDMwcHg7XHJcbiAgYm9yZGVyLXRvcC1yaWdodC1yYWRpdXM6IDhweDtcclxuICBib3JkZXItYm90dG9tLXJpZ2h0LXJhZGl1czogOHB4O1xyXG4gIC8vIG92ZXJmbG93OiBzY3JvbGw7XHJcblxyXG4gIC50b3AtYmFyIHtcclxuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgLnRpdGxlIHtcclxuICAgICAgZmxleC1ncm93OiAxO1xyXG4gICAgICBtYXJnaW46IDA7XHJcbiAgICB9XHJcbiAgfVxyXG59XHJcblxyXG4ubGlzdC1tZW51LXNjcm9sbCB7XHJcbiAgcGFkZGluZy1yaWdodDogMjBweDtcclxuICB3aWR0aDogMjAwcHg7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIG1hcmdpbi10b3A6IDBweDtcclxuICBtYXJnaW4tYm90dG9tOiA0MHB4O1xyXG4gIG92ZXJmbG93LXk6IHNjcm9sbDtcclxufVxyXG5cclxuI3Njcm9sbC1saXN0Ojotd2Via2l0LXNjcm9sbGJhciB7XHJcbiAgd2lkdGg6IDZweDtcclxuICBiYWNrZ3JvdW5kOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDApO1xyXG59XHJcbiNzY3JvbGwtbGlzdDo6LXdlYmtpdC1zY3JvbGxiYXItdGh1bWIge1xyXG4gIHotaW5kZXg6IDEwMDAwO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNiOWI5Yjk7XHJcbn1cclxuI3Njcm9sbC1saXN0Ojotd2Via2l0LXNjcm9sbGJhci10cmFjayB7XHJcbiAgYm94LXNoYWRvdzogbm9uZTtcclxuICAtd2Via2l0LWJveC1zaGFkb3c6IGluc2V0IDAgMCA2cHggcmdiYSgwLCAwLCAwLCAwLjMpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMCk7XHJcbn1cclxuXHJcbi5saXN0LW1lbnUge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICBtYXJnaW4tdG9wOiA0cHg7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIGZvbnQtc2l6ZTogMThweDtcclxuXHJcbiAgLmxpc3QtbWVudS1pdGVtIHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gICAgcGFkZGluZzogOHB4IDE1cHg7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGNvbG9yOiAjNWY1ZjVmO1xyXG4gICAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG5cclxuICAgICY6aG92ZXIge1xyXG4gICAgICBiYWNrZ3JvdW5kOiAkbGlnaHQ7XHJcbiAgICB9XHJcblxyXG4gICAgJi5pcy1hY3RpdmUge1xyXG4gICAgICBiYWNrZ3JvdW5kOiAjZTBlNWZmO1xyXG4gICAgICBjb2xvcjogJGRhcmstYmx1ZTtcclxuICAgIH1cclxuICB9XHJcbn1cclxuXHJcbi5idXR0b24tbGlzdCB7XHJcbiAgLy8gcG9zaXRpb246IGZpeGVkO1xyXG4gIC8vIGJvdHRvbTogMDtcclxuICBtYXJnaW4tdG9wOiAtMjBweDtcclxufVxyXG5cclxuLnRhc2sge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgYmFja2dyb3VuZDogd2hpdGU7XHJcbiAgcGFkZGluZzogOHB4IDIwcHg7XHJcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gIG1hcmdpbi10b3A6IDZweDtcclxuICBmb250LXNpemU6IDE4cHg7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuXHJcbiAgJjpub3QoLmNvbXBsZXRlKSB7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICB0cmFuc2l0aW9uOiBib3gtc2hhZG93IDAuMnMgZWFzZSwgdHJhbnNmb3JtIDAuMnMgZWFzZTtcclxuXHJcbiAgICAmOmFjdGl2ZSB7XHJcbiAgICAgIHRyYW5zZm9ybTogc2NhbGUoMC45OSk7XHJcbiAgICB9XHJcblxyXG4gICAgJjpob3ZlciB7XHJcbiAgICAgIGJveC1zaGFkb3c6IDAgMCAwIDVweCAjZWJlYmViO1xyXG5cclxuICAgICAgLnRhc2stYnV0dG9ucyB7XHJcbiAgICAgICAgb3BhY2l0eTogMTtcclxuICAgICAgICB0cmFuc2Zvcm06IHNjYWxlKDEpO1xyXG4gICAgICB9XHJcbiAgICB9XHJcbiAgfVxyXG5cclxuICAmLmNvbXBsZXRlZCAudGFzay10ZXh0IHtcclxuICAgIHRleHQtZGVjb3JhdGlvbjogbGluZS10aHJvdWdoO1xyXG4gICAgb3BhY2l0eTogMC44O1xyXG4gIH1cclxuXHJcbiAgLnRhc2stdGV4dCB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1ncm93OiAxO1xyXG4gIH1cclxuICAudGFzay1idXR0b25zIHtcclxuICAgIHRyYW5zaXRpb246IG9wYWNpdHkgMC4ycywgdHJhbnNmb3JtIDAuMnM7XHJcbiAgICBvcGFjaXR5OiAwO1xyXG4gICAgdHJhbnNmb3JtOiBzY2FsZSgwLjg1KTtcclxuICB9XHJcblxyXG4gIC50YXNrLWJ1dHRvbnMgYnV0dG9uIHtcclxuICAgIGJhY2tncm91bmQ6IG5vbmU7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgfVxyXG4gIC50YXNrLWJ1dHRvbnMgLmljb257XHJcbiAgICBtYXJnaW4tbGVmdDogMHB4O1xyXG4gICAgYmFja2dyb3VuZDogcmdiKDI1NSwgMjU1LCAyNTUpO1xyXG4gICAgY29sb3I6IHJnYig1MiwgNzUsIDExNyk7XHJcbiAgfVxyXG4gIC50YXNrLWJ1dHRvbnMgLnRyYXNoe1xyXG4gICAgY29sb3I6IHJnYigyMzgsIDk4LCA5OCk7XHJcbiAgfVxyXG59XHJcblxyXG4udGFzay1tZW51LXNjcm9sbCB7XHJcbiAgcGFkZGluZzogMTBweCAzMHB4IDIwcHggMzBweDtcclxuICBtYXJnaW4tdG9wOiAtMTBweDtcclxuICBtYXJnaW4tYm90dG9tOiA2MHB4O1xyXG4gIG92ZXJmbG93LXk6IHNjcm9sbDtcclxufVxyXG5cclxuI3Njcm9sbC10YXNrOjotd2Via2l0LXNjcm9sbGJhciB7XHJcbiAgd2lkdGg6IDZweDtcclxuICBiYWNrZ3JvdW5kOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDApO1xyXG59XHJcbiNzY3JvbGwtdGFzazo6LXdlYmtpdC1zY3JvbGxiYXItdGh1bWIge1xyXG4gIHotaW5kZXg6IDEwMDAwO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNiOWI5Yjk7XHJcbn1cclxuI3Njcm9sbC10YXNrOjotd2Via2l0LXNjcm9sbGJhci10cmFjayB7XHJcbiAgYm94LXNoYWRvdzogbm9uZTtcclxuICAtd2Via2l0LWJveC1zaGFkb3c6IGluc2V0IDAgMCA2cHggcmdiYSgwLCAwLCAwLCAwLjMpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMCk7XHJcbn1cclxuXHJcbi5jaXJjbGUtYWRkLWJ1dHRvbiB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGJvdHRvbTogMzBweDtcclxuICByaWdodDogMzBweDtcclxuICBoZWlnaHQ6IDQwcHg7XHJcbiAgd2lkdGg6IDQwcHg7XHJcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG59XHJcblxyXG4uZW1wdHktc3RhdGUtdGV4dCB7XHJcbiAgbWFyZ2luLXRvcDogMjUwcHg7XHJcbiAgZm9udC1zaXplOiAxOHB4O1xyXG4gIGNvbG9yOiByZ2IoMTkyLCAxOTIsIDE5Mik7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcblxyXG4uZW1wdHktdGFzayB7XHJcbiAgbWFyZ2luLXRvcDogMTYwcHg7XHJcbn1cclxuIl19 */";
+    __webpack_exports__["default"] = "html {\n  background: -webkit-gradient(linear, left bottom, right top, from(rgba(20, 41, 87, 0.842)), to(rgba(35, 71, 139, 0.918)));\n  background: linear-gradient(to right top, rgba(20, 41, 87, 0.842), rgba(35, 71, 139, 0.918));\n  font-family: \"Roboto\";\n}\n\nhtml, body {\n  height: 100%;\n}\n\n.centered-content {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  width: 100%;\n  height: 80%;\n}\n\n.vertical-center {\n  position: absolute;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n\n.modal-box {\n  min-height: 200px;\n  width: 100%;\n  max-width: 600px;\n  background: white;\n  border-radius: 5px;\n  padding: 35px;\n}\n\n.title {\n  font-family: \"arial\";\n  font-size: 22px;\n  font-weight: bold;\n  letter-spacing: 3px;\n  text-transform: uppercase;\n}\n\n.white-box {\n  padding: 40px;\n  background: white;\n  border-radius: 5px;\n  width: 400px;\n}\n\n* {\n  font-family: \"Segoe UI\";\n}\n\n.task-manager-container {\n  display: -webkit-box;\n  display: flex;\n  width: 100%;\n  height: 100%;\n  max-width: 1000px;\n  max-height: 680px;\n}\n\n.sidebar {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  width: 250px;\n  background: #ffffff;\n  padding: 30px;\n  border-top-left-radius: 8px;\n  border-bottom-left-radius: 8px;\n}\n\n.task-list-container {\n  position: relative;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  padding: 30px;\n  border-top-right-radius: 8px;\n  border-bottom-right-radius: 8px;\n}\n\n.task-list-container .top-bar {\n  margin-bottom: 20px;\n  display: -webkit-box;\n  display: flex;\n}\n\n.task-list-container .top-bar .title {\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  margin: 0;\n}\n\n.list-menu-scroll {\n  padding-right: 20px;\n  width: 200px;\n  height: 100%;\n  margin-top: 0px;\n  margin-bottom: 40px;\n  overflow-y: scroll;\n}\n\n#scroll-list::-webkit-scrollbar {\n  width: 6px;\n  background: rgba(255, 255, 255, 0);\n}\n\n#scroll-list::-webkit-scrollbar-thumb {\n  z-index: 10000;\n  background-color: #b9b9b9;\n}\n\n#scroll-list::-webkit-scrollbar-track {\n  box-shadow: none;\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n  background-color: rgba(255, 255, 255, 0);\n}\n\n.list-menu {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  margin-top: 4px;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  font-size: 16px;\n}\n\n.list-menu .list-menu-item {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  padding: 8px 15px;\n  border-radius: 5px;\n  width: 100%;\n  color: #5f5f5f;\n  margin-bottom: 5px;\n  background: #f3f3f3;\n}\n\n.list-menu .list-menu-item:hover {\n  background: #ebebeb;\n}\n\n.list-menu .list-menu-item.is-active {\n  background: #8ca8d4;\n  color: white;\n}\n\n.button-list {\n  margin-top: -20px;\n}\n\n.task {\n  display: -webkit-box;\n  display: flex;\n  background: white;\n  padding: 4px 20px;\n  border-radius: 5px;\n  margin-top: 6px;\n  font-size: 16px;\n  -webkit-box-align: center;\n          align-items: center;\n}\n\n.task:not(.complete) {\n  cursor: pointer;\n  -webkit-transition: box-shadow 0.2s ease, -webkit-transform 0.2s ease;\n  transition: box-shadow 0.2s ease, -webkit-transform 0.2s ease;\n  transition: box-shadow 0.2s ease, transform 0.2s ease;\n  transition: box-shadow 0.2s ease, transform 0.2s ease, -webkit-transform 0.2s ease;\n}\n\n.task:not(.complete):active {\n  -webkit-transform: scale(0.99);\n          transform: scale(0.99);\n}\n\n.task:not(.complete):hover {\n  box-shadow: 0 0 0 5px #ebebeb;\n}\n\n.task:not(.complete):hover .task-buttons {\n  opacity: 1;\n  -webkit-transform: scale(1);\n          transform: scale(1);\n}\n\n.task.completed .task-text {\n  text-decoration: line-through;\n  opacity: 0.8;\n}\n\n.task .task-text {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n}\n\n.task .task-buttons {\n  -webkit-transition: opacity 0.2s, -webkit-transform 0.2s;\n  transition: opacity 0.2s, -webkit-transform 0.2s;\n  transition: opacity 0.2s, transform 0.2s;\n  transition: opacity 0.2s, transform 0.2s, -webkit-transform 0.2s;\n  opacity: 0;\n  -webkit-transform: scale(0.85);\n          transform: scale(0.85);\n}\n\n.task .task-buttons button {\n  background: none;\n  border: none;\n}\n\n.task .task-buttons .icon {\n  margin-left: 0px;\n  background: white;\n  color: #344b75;\n}\n\n.task .task-buttons .trash {\n  color: #ee6262;\n}\n\n.task-menu-scroll {\n  padding: 10px 30px 20px 30px;\n  margin-top: -10px;\n  height: 350px;\n  margin-bottom: 60px;\n  overflow-y: scroll;\n}\n\n#scroll-task::-webkit-scrollbar {\n  width: 6px;\n  background: rgba(255, 255, 255, 0);\n}\n\n#scroll-task::-webkit-scrollbar-thumb {\n  z-index: 10000;\n  background-color: #b9b9b9;\n}\n\n#scroll-task::-webkit-scrollbar-track {\n  box-shadow: none;\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n  background-color: rgba(255, 255, 255, 0);\n}\n\n.circle-add-button {\n  position: absolute;\n  bottom: 30px;\n  right: 30px;\n  height: 40px;\n  width: 40px;\n  border-radius: 50%;\n}\n\n.empty-state-text {\n  z-index: 100000000;\n  position: relative;\n  margin-top: 220px;\n  font-size: 18px;\n  color: silver;\n  text-align: center;\n}\n\n.empty-task {\n  top: -250px;\n  margin-top: 0px;\n}\n\n.dropdown-content {\n  position: fixed;\n  width: 180px;\n  background: white;\n}\n\n.dropdown-content a {\n  background: white;\n  margin: 4px auto;\n  width: 160px;\n  border-radius: 4px;\n}\n\n.dropdown-content a:hover {\n  background: #f8f8f8;\n}\n\n.dropdown-content #logout-link {\n  background: #263c61;\n  color: white;\n}\n\n.title-list {\n  text-decoration: underline;\n}\n\n.title-task {\n  text-decoration: underline;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvdGFzay12aWV3L0M6XFxVc2Vyc1xcRGVsbFxcRGVza3RvcFxcV2ViRGV2XFxQcm9qZWN0c1xcTG9jYWwgUHJvamVjdHNcXHRhc2stbWFuYWdlclxcZnJvbnRlbmQvc3JjXFxtYWluLXN0eWxlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL3Rhc2stdmlldy90YXNrLXZpZXcuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3BhZ2VzL3Rhc2stdmlldy9DOlxcVXNlcnNcXERlbGxcXERlc2t0b3BcXFdlYkRldlxcUHJvamVjdHNcXExvY2FsIFByb2plY3RzXFx0YXNrLW1hbmFnZXJcXGZyb250ZW5kL3NyY1xcYXBwXFxwYWdlc1xcdGFzay12aWV3XFx0YXNrLXZpZXcuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBcUJBO0VBQ0UseUhBQUE7RUFBQSw0RkFBQTtFQUNBLHFCQWJjO0FDUGhCOztBRHVCQTtFQUNFLFlBQUE7QUNwQkY7O0FEdUJBO0VBQ0Usb0JBQUE7RUFBQSxhQUFBO0VBQ0Esd0JBQUE7VUFBQSx1QkFBQTtFQUNBLHlCQUFBO1VBQUEsbUJBQUE7RUFDQSxXQUFBO0VBQ0EsV0FBQTtBQ3BCRjs7QURzQkE7RUFFRSxrQkFBQTtFQUNBLFFBQUE7RUFFQSxtQ0FBQTtVQUFBLDJCQUFBO0FDcEJGOztBRHVCQTtFQUNFLGlCQUFBO0VBQ0EsV0FBQTtFQUNBLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtFQUNBLGFBQUE7QUNwQkY7O0FEdUJBO0VBQ0Usb0JBQUE7RUFDQSxlQUFBO0VBQ0EsaUJBQUE7RUFDQSxtQkFBQTtFQUNBLHlCQUFBO0FDcEJGOztBRHVCQTtFQUNFLGFBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0EsWUFBQTtBQ3BCRjs7QUM1Q0E7RUFDRSx1QkFBQTtBRCtDRjs7QUM1Q0E7RUFDRSxvQkFBQTtFQUFBLGFBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGlCQUFBO0VBQ0EsaUJBQUE7QUQrQ0Y7O0FDNUNBO0VBQ0Usb0JBQUE7RUFBQSxhQUFBO0VBQ0EsNEJBQUE7RUFBQSw2QkFBQTtVQUFBLHNCQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0VBQ0EsYUFBQTtFQUNBLDJCQUFBO0VBQ0EsOEJBQUE7QUQrQ0Y7O0FDNUNBO0VBQ0Usa0JBQUE7RUFDQSxvQkFBQTtFQUFBLGFBQUE7RUFDQSw0QkFBQTtFQUFBLDZCQUFBO1VBQUEsc0JBQUE7RUFDQSxtQkFBQTtVQUFBLFlBQUE7RUFDQSxhQUFBO0VBQ0EsNEJBQUE7RUFDQSwrQkFBQTtBRCtDRjs7QUM1Q0U7RUFDRSxtQkFBQTtFQUNBLG9CQUFBO0VBQUEsYUFBQTtBRDhDSjs7QUM3Q0k7RUFDRSxtQkFBQTtVQUFBLFlBQUE7RUFDQSxTQUFBO0FEK0NOOztBQzFDQTtFQUNFLG1CQUFBO0VBQ0EsWUFBQTtFQUNBLFlBQUE7RUFDQSxlQUFBO0VBQ0EsbUJBQUE7RUFDQSxrQkFBQTtBRDZDRjs7QUMxQ0E7RUFDRSxVQUFBO0VBQ0Esa0NBQUE7QUQ2Q0Y7O0FDM0NBO0VBQ0UsY0FBQTtFQUNBLHlCQUFBO0FEOENGOztBQzVDQTtFQUNFLGdCQUFBO0VBQ0Esb0RBQUE7RUFDQSx3Q0FBQTtBRCtDRjs7QUM1Q0E7RUFDRSxvQkFBQTtFQUFBLGFBQUE7RUFDQSw0QkFBQTtFQUFBLDZCQUFBO1VBQUEsc0JBQUE7RUFDQSxlQUFBO0VBQ0EsbUJBQUE7VUFBQSxZQUFBO0VBQ0EsZUFBQTtBRCtDRjs7QUM3Q0U7RUFDRSxvQkFBQTtFQUFBLGFBQUE7RUFDQSx5QkFBQTtVQUFBLG1CQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxjQUFBO0VBQ0Esa0JBQUE7RUFDQSxtQkY1RUk7QUMySFI7O0FDN0NJO0VBQ0UsbUJBQUE7QUQrQ047O0FDNUNJO0VBQ0UsbUJBQUE7RUFDQSxZQUFBO0FEOENOOztBQ3pDQTtFQUdFLGlCQUFBO0FEMENGOztBQ3ZDQTtFQUNFLG9CQUFBO0VBQUEsYUFBQTtFQUNBLGlCQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtFQUNBLGVBQUE7RUFDQSxlQUFBO0VBQ0EseUJBQUE7VUFBQSxtQkFBQTtBRDBDRjs7QUN4Q0U7RUFDRSxlQUFBO0VBQ0EscUVBQUE7RUFBQSw2REFBQTtFQUFBLHFEQUFBO0VBQUEsa0ZBQUE7QUQwQ0o7O0FDeENJO0VBQ0UsOEJBQUE7VUFBQSxzQkFBQTtBRDBDTjs7QUN2Q0k7RUFDRSw2QkFBQTtBRHlDTjs7QUN2Q007RUFDRSxVQUFBO0VBQ0EsMkJBQUE7VUFBQSxtQkFBQTtBRHlDUjs7QUNwQ0U7RUFDRSw2QkFBQTtFQUNBLFlBQUE7QURzQ0o7O0FDbkNFO0VBQ0Usb0JBQUE7RUFBQSxhQUFBO0VBQ0EsbUJBQUE7VUFBQSxZQUFBO0FEcUNKOztBQ25DRTtFQUNFLHdEQUFBO0VBQUEsZ0RBQUE7RUFBQSx3Q0FBQTtFQUFBLGdFQUFBO0VBQ0EsVUFBQTtFQUNBLDhCQUFBO1VBQUEsc0JBQUE7QURxQ0o7O0FDbENFO0VBQ0UsZ0JBQUE7RUFDQSxZQUFBO0FEb0NKOztBQ2xDRTtFQUNFLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxjQUFBO0FEb0NKOztBQ2xDRTtFQUNFLGNBQUE7QURvQ0o7O0FDaENBO0VBRUUsNEJBQUE7RUFDQSxpQkFBQTtFQUNBLGFBQUE7RUFDQSxtQkFBQTtFQUNBLGtCQUFBO0FEa0NGOztBQy9CQTtFQUNFLFVBQUE7RUFDQSxrQ0FBQTtBRGtDRjs7QUNoQ0E7RUFDRSxjQUFBO0VBQ0EseUJBQUE7QURtQ0Y7O0FDakNBO0VBQ0UsZ0JBQUE7RUFDQSxvREFBQTtFQUNBLHdDQUFBO0FEb0NGOztBQ2pDQTtFQUNFLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsV0FBQTtFQUNBLGtCQUFBO0FEb0NGOztBQ2pDQTtFQUNFLGtCQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQkFBQTtFQUNBLGVBQUE7RUFDQSxhQUFBO0VBQ0Esa0JBQUE7QURvQ0Y7O0FDakNBO0VBQ0UsV0FBQTtFQUNBLGVBQUE7QURvQ0Y7O0FDakNBO0VBQ0UsZUFBQTtFQUNBLFlBQUE7RUFDQSxpQkFBQTtBRG9DRjs7QUNqQ0E7RUFDRSxpQkFBQTtFQUNBLGdCQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0FEb0NGOztBQ2xDQTtFQUNFLG1CQUFBO0FEcUNGOztBQ25DQTtFQUNFLG1CQUFBO0VBQ0EsWUFBQTtBRHNDRjs7QUNuQ0E7RUFDRSwwQkFBQTtBRHNDRjs7QUNwQ0E7RUFDRSwwQkFBQTtBRHVDRiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3Rhc2stdmlldy90YXNrLXZpZXcuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvLyBHbG9iYWwgc3R5bGVzIGFuZCBWYXJpYWJsZXNcclxuXHJcbiRpbmRpZ286IHJnYmEoMjMsIDI5LCA1MSwgMC44Nyk7XHJcbiRibHVlOiByZ2JhKDIwLCA0MSwgODcsIDAuODQyKTtcclxuJGxpZ2h0LWJsdWU6IHJnYmEoMzUsIDcxLCAxMzksIDAuOTE4KTtcclxuJGRhcmstYmx1ZTogcmdiYSg5LCAzNSwgOTIsIDAuOTA0KTtcclxuJGxpZ2h0OiByZ2IoMjQzLCAyNDMsIDI0Myk7XHJcblxyXG5cclxuLy8gVXBkYXRlIEJ1bG1hJ3MgZ2xvYmFsIHZhcmlhYmxlc1xyXG4kZmFtaWx5LXJvYm90bzogJ1JvYm90byc7XHJcbiRwcmltYXJ5OiAkYmx1ZTtcclxuJGxpbms6ICRsaWdodC1ibHVlO1xyXG5cclxuLy8gVXBkYXRlIEJ1bG1hJ3MgY29tcG9uZW50IHZhcmlhYmxlc1xyXG4kY29udHJvbC1ib3JkZXItd2lkdGg6IDJweDtcclxuJGlucHV0LWJvcmRlci1jb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiRpbnB1dC1zaGFkb3c6IG5vbmU7XHJcblxyXG4vLyBTZXR0aW5nIGN1c3RvbSBHbG9iYWwgc3R5bGVzIChhcHBsaWVkIGZvciB0aGUgd2hvbGUgYXBwbGljYXRpb24pXHJcblxyXG5odG1sIHtcclxuICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQodG8gcmlnaHQgdG9wLCAkYmx1ZSwgJGxpZ2h0LWJsdWUpO1xyXG4gIGZvbnQtZmFtaWx5OiAkZmFtaWx5LXJvYm90bztcclxufVxyXG5cclxuaHRtbCwgYm9keXtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuXHJcbi5jZW50ZXJlZC1jb250ZW50e1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICB3aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6IDgwJTtcclxufVxyXG4udmVydGljYWwtY2VudGVyIHtcclxuICAvLyBtYXJnaW46IDA7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHRvcDogNTAlO1xyXG4gIC1tcy10cmFuc2Zvcm06IHRyYW5zbGF0ZVkoLTUwJSk7XHJcbiAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC01MCUpO1xyXG59XHJcblxyXG4ubW9kYWwtYm94e1xyXG4gIG1pbi1oZWlnaHQ6IDIwMHB4O1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIG1heC13aWR0aDogNjAwcHg7XHJcbiAgYmFja2dyb3VuZDogd2hpdGU7XHJcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gIHBhZGRpbmc6IDM1cHg7XHJcbn0gIFxyXG5cclxuLnRpdGxle1xyXG4gIGZvbnQtZmFtaWx5OiAnYXJpYWwnO1xyXG4gIGZvbnQtc2l6ZTogMjJweDtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxuICBsZXR0ZXItc3BhY2luZzogM3B4O1xyXG4gIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XHJcbn1cclxuXHJcbi53aGl0ZS1ib3h7XHJcbiAgcGFkZGluZzogNDBweDtcclxuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgd2lkdGg6IDQwMHB4O1xyXG59IiwiaHRtbCB7XG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCh0byByaWdodCB0b3AsIHJnYmEoMjAsIDQxLCA4NywgMC44NDIpLCByZ2JhKDM1LCA3MSwgMTM5LCAwLjkxOCkpO1xuICBmb250LWZhbWlseTogXCJSb2JvdG9cIjtcbn1cblxuaHRtbCwgYm9keSB7XG4gIGhlaWdodDogMTAwJTtcbn1cblxuLmNlbnRlcmVkLWNvbnRlbnQge1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogODAlO1xufVxuXG4udmVydGljYWwtY2VudGVyIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDUwJTtcbiAgLW1zLXRyYW5zZm9ybTogdHJhbnNsYXRlWSgtNTAlKTtcbiAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC01MCUpO1xufVxuXG4ubW9kYWwtYm94IHtcbiAgbWluLWhlaWdodDogMjAwcHg7XG4gIHdpZHRoOiAxMDAlO1xuICBtYXgtd2lkdGg6IDYwMHB4O1xuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBwYWRkaW5nOiAzNXB4O1xufVxuXG4udGl0bGUge1xuICBmb250LWZhbWlseTogXCJhcmlhbFwiO1xuICBmb250LXNpemU6IDIycHg7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xuICBsZXR0ZXItc3BhY2luZzogM3B4O1xuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xufVxuXG4ud2hpdGUtYm94IHtcbiAgcGFkZGluZzogNDBweDtcbiAgYmFja2dyb3VuZDogd2hpdGU7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgd2lkdGg6IDQwMHB4O1xufVxuXG4qIHtcbiAgZm9udC1mYW1pbHk6IFwiU2Vnb2UgVUlcIjtcbn1cblxuLnRhc2stbWFuYWdlci1jb250YWluZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xuICBtYXgtd2lkdGg6IDEwMDBweDtcbiAgbWF4LWhlaWdodDogNjgwcHg7XG59XG5cbi5zaWRlYmFyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgd2lkdGg6IDI1MHB4O1xuICBiYWNrZ3JvdW5kOiAjZmZmZmZmO1xuICBwYWRkaW5nOiAzMHB4O1xuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiA4cHg7XG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDhweDtcbn1cblxuLnRhc2stbGlzdC1jb250YWluZXIge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIGZsZXgtZ3JvdzogMTtcbiAgcGFkZGluZzogMzBweDtcbiAgYm9yZGVyLXRvcC1yaWdodC1yYWRpdXM6IDhweDtcbiAgYm9yZGVyLWJvdHRvbS1yaWdodC1yYWRpdXM6IDhweDtcbn1cbi50YXNrLWxpc3QtY29udGFpbmVyIC50b3AtYmFyIHtcbiAgbWFyZ2luLWJvdHRvbTogMjBweDtcbiAgZGlzcGxheTogZmxleDtcbn1cbi50YXNrLWxpc3QtY29udGFpbmVyIC50b3AtYmFyIC50aXRsZSB7XG4gIGZsZXgtZ3JvdzogMTtcbiAgbWFyZ2luOiAwO1xufVxuXG4ubGlzdC1tZW51LXNjcm9sbCB7XG4gIHBhZGRpbmctcmlnaHQ6IDIwcHg7XG4gIHdpZHRoOiAyMDBweDtcbiAgaGVpZ2h0OiAxMDAlO1xuICBtYXJnaW4tdG9wOiAwcHg7XG4gIG1hcmdpbi1ib3R0b206IDQwcHg7XG4gIG92ZXJmbG93LXk6IHNjcm9sbDtcbn1cblxuI3Njcm9sbC1saXN0Ojotd2Via2l0LXNjcm9sbGJhciB7XG4gIHdpZHRoOiA2cHg7XG4gIGJhY2tncm91bmQ6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMCk7XG59XG5cbiNzY3JvbGwtbGlzdDo6LXdlYmtpdC1zY3JvbGxiYXItdGh1bWIge1xuICB6LWluZGV4OiAxMDAwMDtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2I5YjliOTtcbn1cblxuI3Njcm9sbC1saXN0Ojotd2Via2l0LXNjcm9sbGJhci10cmFjayB7XG4gIGJveC1zaGFkb3c6IG5vbmU7XG4gIC13ZWJraXQtYm94LXNoYWRvdzogaW5zZXQgMCAwIDZweCByZ2JhKDAsIDAsIDAsIDAuMyk7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMCk7XG59XG5cbi5saXN0LW1lbnUge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICBtYXJnaW4tdG9wOiA0cHg7XG4gIGZsZXgtZ3JvdzogMTtcbiAgZm9udC1zaXplOiAxNnB4O1xufVxuLmxpc3QtbWVudSAubGlzdC1tZW51LWl0ZW0ge1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBwYWRkaW5nOiA4cHggMTVweDtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICB3aWR0aDogMTAwJTtcbiAgY29sb3I6ICM1ZjVmNWY7XG4gIG1hcmdpbi1ib3R0b206IDVweDtcbiAgYmFja2dyb3VuZDogI2YzZjNmMztcbn1cbi5saXN0LW1lbnUgLmxpc3QtbWVudS1pdGVtOmhvdmVyIHtcbiAgYmFja2dyb3VuZDogI2ViZWJlYjtcbn1cbi5saXN0LW1lbnUgLmxpc3QtbWVudS1pdGVtLmlzLWFjdGl2ZSB7XG4gIGJhY2tncm91bmQ6ICM4Y2E4ZDQ7XG4gIGNvbG9yOiB3aGl0ZTtcbn1cblxuLmJ1dHRvbi1saXN0IHtcbiAgbWFyZ2luLXRvcDogLTIwcHg7XG59XG5cbi50YXNrIHtcbiAgZGlzcGxheTogZmxleDtcbiAgYmFja2dyb3VuZDogd2hpdGU7XG4gIHBhZGRpbmc6IDRweCAyMHB4O1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIG1hcmdpbi10b3A6IDZweDtcbiAgZm9udC1zaXplOiAxNnB4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xufVxuLnRhc2s6bm90KC5jb21wbGV0ZSkge1xuICBjdXJzb3I6IHBvaW50ZXI7XG4gIHRyYW5zaXRpb246IGJveC1zaGFkb3cgMC4ycyBlYXNlLCB0cmFuc2Zvcm0gMC4ycyBlYXNlO1xufVxuLnRhc2s6bm90KC5jb21wbGV0ZSk6YWN0aXZlIHtcbiAgdHJhbnNmb3JtOiBzY2FsZSgwLjk5KTtcbn1cbi50YXNrOm5vdCguY29tcGxldGUpOmhvdmVyIHtcbiAgYm94LXNoYWRvdzogMCAwIDAgNXB4ICNlYmViZWI7XG59XG4udGFzazpub3QoLmNvbXBsZXRlKTpob3ZlciAudGFzay1idXR0b25zIHtcbiAgb3BhY2l0eTogMTtcbiAgdHJhbnNmb3JtOiBzY2FsZSgxKTtcbn1cbi50YXNrLmNvbXBsZXRlZCAudGFzay10ZXh0IHtcbiAgdGV4dC1kZWNvcmF0aW9uOiBsaW5lLXRocm91Z2g7XG4gIG9wYWNpdHk6IDAuODtcbn1cbi50YXNrIC50YXNrLXRleHQge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWdyb3c6IDE7XG59XG4udGFzayAudGFzay1idXR0b25zIHtcbiAgdHJhbnNpdGlvbjogb3BhY2l0eSAwLjJzLCB0cmFuc2Zvcm0gMC4ycztcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNmb3JtOiBzY2FsZSgwLjg1KTtcbn1cbi50YXNrIC50YXNrLWJ1dHRvbnMgYnV0dG9uIHtcbiAgYmFja2dyb3VuZDogbm9uZTtcbiAgYm9yZGVyOiBub25lO1xufVxuLnRhc2sgLnRhc2stYnV0dG9ucyAuaWNvbiB7XG4gIG1hcmdpbi1sZWZ0OiAwcHg7XG4gIGJhY2tncm91bmQ6IHdoaXRlO1xuICBjb2xvcjogIzM0NGI3NTtcbn1cbi50YXNrIC50YXNrLWJ1dHRvbnMgLnRyYXNoIHtcbiAgY29sb3I6ICNlZTYyNjI7XG59XG5cbi50YXNrLW1lbnUtc2Nyb2xsIHtcbiAgcGFkZGluZzogMTBweCAzMHB4IDIwcHggMzBweDtcbiAgbWFyZ2luLXRvcDogLTEwcHg7XG4gIGhlaWdodDogMzUwcHg7XG4gIG1hcmdpbi1ib3R0b206IDYwcHg7XG4gIG92ZXJmbG93LXk6IHNjcm9sbDtcbn1cblxuI3Njcm9sbC10YXNrOjotd2Via2l0LXNjcm9sbGJhciB7XG4gIHdpZHRoOiA2cHg7XG4gIGJhY2tncm91bmQ6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMCk7XG59XG5cbiNzY3JvbGwtdGFzazo6LXdlYmtpdC1zY3JvbGxiYXItdGh1bWIge1xuICB6LWluZGV4OiAxMDAwMDtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2I5YjliOTtcbn1cblxuI3Njcm9sbC10YXNrOjotd2Via2l0LXNjcm9sbGJhci10cmFjayB7XG4gIGJveC1zaGFkb3c6IG5vbmU7XG4gIC13ZWJraXQtYm94LXNoYWRvdzogaW5zZXQgMCAwIDZweCByZ2JhKDAsIDAsIDAsIDAuMyk7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMCk7XG59XG5cbi5jaXJjbGUtYWRkLWJ1dHRvbiB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgYm90dG9tOiAzMHB4O1xuICByaWdodDogMzBweDtcbiAgaGVpZ2h0OiA0MHB4O1xuICB3aWR0aDogNDBweDtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xufVxuXG4uZW1wdHktc3RhdGUtdGV4dCB7XG4gIHotaW5kZXg6IDEwMDAwMDAwMDtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBtYXJnaW4tdG9wOiAyMjBweDtcbiAgZm9udC1zaXplOiAxOHB4O1xuICBjb2xvcjogc2lsdmVyO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5lbXB0eS10YXNrIHtcbiAgdG9wOiAtMjUwcHg7XG4gIG1hcmdpbi10b3A6IDBweDtcbn1cblxuLmRyb3Bkb3duLWNvbnRlbnQge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIHdpZHRoOiAxODBweDtcbiAgYmFja2dyb3VuZDogd2hpdGU7XG59XG5cbi5kcm9wZG93bi1jb250ZW50IGEge1xuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcbiAgbWFyZ2luOiA0cHggYXV0bztcbiAgd2lkdGg6IDE2MHB4O1xuICBib3JkZXItcmFkaXVzOiA0cHg7XG59XG5cbi5kcm9wZG93bi1jb250ZW50IGE6aG92ZXIge1xuICBiYWNrZ3JvdW5kOiAjZjhmOGY4O1xufVxuXG4uZHJvcGRvd24tY29udGVudCAjbG9nb3V0LWxpbmsge1xuICBiYWNrZ3JvdW5kOiAjMjYzYzYxO1xuICBjb2xvcjogd2hpdGU7XG59XG5cbi50aXRsZS1saXN0IHtcbiAgdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7XG59XG5cbi50aXRsZS10YXNrIHtcbiAgdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7XG59IiwiQGltcG9ydCBcIi4uLy4uLy4uL21haW4tc3R5bGUuc2Nzc1wiO1xyXG5cclxuKiB7XHJcbiAgZm9udC1mYW1pbHk6IFwiU2Vnb2UgVUlcIjtcclxufVxyXG5cclxuLnRhc2stbWFuYWdlci1jb250YWluZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIG1heC13aWR0aDogMTAwMHB4O1xyXG4gIG1heC1oZWlnaHQ6IDY4MHB4O1xyXG59XHJcblxyXG4uc2lkZWJhciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gIHdpZHRoOiAyNTBweDtcclxuICBiYWNrZ3JvdW5kOiAjZmZmZmZmO1xyXG4gIHBhZGRpbmc6IDMwcHg7XHJcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogOHB4O1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDhweDtcclxufVxyXG5cclxuLnRhc2stbGlzdC1jb250YWluZXIge1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIHBhZGRpbmc6IDMwcHg7XHJcbiAgYm9yZGVyLXRvcC1yaWdodC1yYWRpdXM6IDhweDtcclxuICBib3JkZXItYm90dG9tLXJpZ2h0LXJhZGl1czogOHB4O1xyXG4gIC8vIG92ZXJmbG93OiBzY3JvbGw7XHJcblxyXG4gIC50b3AtYmFyIHtcclxuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgLnRpdGxlIHtcclxuICAgICAgZmxleC1ncm93OiAxO1xyXG4gICAgICBtYXJnaW46IDA7XHJcbiAgICB9XHJcbiAgfVxyXG59XHJcblxyXG4ubGlzdC1tZW51LXNjcm9sbCB7XHJcbiAgcGFkZGluZy1yaWdodDogMjBweDtcclxuICB3aWR0aDogMjAwcHg7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIG1hcmdpbi10b3A6IDBweDtcclxuICBtYXJnaW4tYm90dG9tOiA0MHB4O1xyXG4gIG92ZXJmbG93LXk6IHNjcm9sbDtcclxufVxyXG5cclxuI3Njcm9sbC1saXN0Ojotd2Via2l0LXNjcm9sbGJhciB7XHJcbiAgd2lkdGg6IDZweDtcclxuICBiYWNrZ3JvdW5kOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDApO1xyXG59XHJcbiNzY3JvbGwtbGlzdDo6LXdlYmtpdC1zY3JvbGxiYXItdGh1bWIge1xyXG4gIHotaW5kZXg6IDEwMDAwO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNiOWI5Yjk7XHJcbn1cclxuI3Njcm9sbC1saXN0Ojotd2Via2l0LXNjcm9sbGJhci10cmFjayB7XHJcbiAgYm94LXNoYWRvdzogbm9uZTtcclxuICAtd2Via2l0LWJveC1zaGFkb3c6IGluc2V0IDAgMCA2cHggcmdiYSgwLCAwLCAwLCAwLjMpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMCk7XHJcbn1cclxuXHJcbi5saXN0LW1lbnUge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICBtYXJnaW4tdG9wOiA0cHg7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIGZvbnQtc2l6ZTogMTZweDtcclxuXHJcbiAgLmxpc3QtbWVudS1pdGVtIHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gICAgcGFkZGluZzogOHB4IDE1cHg7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGNvbG9yOiAjNWY1ZjVmO1xyXG4gICAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG4gICAgYmFja2dyb3VuZDogJGxpZ2h0O1xyXG5cclxuICAgICY6aG92ZXIge1xyXG4gICAgICBiYWNrZ3JvdW5kOiByZ2IoMjM1LCAyMzUsIDIzNSk7XHJcbiAgICB9XHJcblxyXG4gICAgJi5pcy1hY3RpdmUge1xyXG4gICAgICBiYWNrZ3JvdW5kOiAjOGNhOGQ0O1xyXG4gICAgICBjb2xvcjogcmdiKDI1NSwgMjU1LCAyNTUpO1xyXG4gICAgfVxyXG4gIH1cclxufVxyXG5cclxuLmJ1dHRvbi1saXN0IHtcclxuICAvLyBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgLy8gYm90dG9tOiAwO1xyXG4gIG1hcmdpbi10b3A6IC0yMHB4O1xyXG59XHJcblxyXG4udGFzayB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcclxuICBwYWRkaW5nOiA0cHggMjBweDtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgbWFyZ2luLXRvcDogNnB4O1xyXG4gIGZvbnQtc2l6ZTogMTZweDtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG5cclxuICAmOm5vdCguY29tcGxldGUpIHtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIHRyYW5zaXRpb246IGJveC1zaGFkb3cgMC4ycyBlYXNlLCB0cmFuc2Zvcm0gMC4ycyBlYXNlO1xyXG5cclxuICAgICY6YWN0aXZlIHtcclxuICAgICAgdHJhbnNmb3JtOiBzY2FsZSgwLjk5KTtcclxuICAgIH1cclxuXHJcbiAgICAmOmhvdmVyIHtcclxuICAgICAgYm94LXNoYWRvdzogMCAwIDAgNXB4ICNlYmViZWI7XHJcblxyXG4gICAgICAudGFzay1idXR0b25zIHtcclxuICAgICAgICBvcGFjaXR5OiAxO1xyXG4gICAgICAgIHRyYW5zZm9ybTogc2NhbGUoMSk7XHJcbiAgICAgIH1cclxuICAgIH1cclxuICB9XHJcblxyXG4gICYuY29tcGxldGVkIC50YXNrLXRleHQge1xyXG4gICAgdGV4dC1kZWNvcmF0aW9uOiBsaW5lLXRocm91Z2g7XHJcbiAgICBvcGFjaXR5OiAwLjg7XHJcbiAgfVxyXG5cclxuICAudGFzay10ZXh0IHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWdyb3c6IDE7XHJcbiAgfVxyXG4gIC50YXNrLWJ1dHRvbnMge1xyXG4gICAgdHJhbnNpdGlvbjogb3BhY2l0eSAwLjJzLCB0cmFuc2Zvcm0gMC4ycztcclxuICAgIG9wYWNpdHk6IDA7XHJcbiAgICB0cmFuc2Zvcm06IHNjYWxlKDAuODUpO1xyXG4gIH1cclxuXHJcbiAgLnRhc2stYnV0dG9ucyBidXR0b24ge1xyXG4gICAgYmFja2dyb3VuZDogbm9uZTtcclxuICAgIGJvcmRlcjogbm9uZTtcclxuICB9XHJcbiAgLnRhc2stYnV0dG9ucyAuaWNvbntcclxuICAgIG1hcmdpbi1sZWZ0OiAwcHg7XHJcbiAgICBiYWNrZ3JvdW5kOiByZ2IoMjU1LCAyNTUsIDI1NSk7XHJcbiAgICBjb2xvcjogcmdiKDUyLCA3NSwgMTE3KTtcclxuICB9XHJcbiAgLnRhc2stYnV0dG9ucyAudHJhc2h7XHJcbiAgICBjb2xvcjogcmdiKDIzOCwgOTgsIDk4KTtcclxuICB9XHJcbn1cclxuXHJcbi50YXNrLW1lbnUtc2Nyb2xsIHtcclxuICAvLyBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgcGFkZGluZzogMTBweCAzMHB4IDIwcHggMzBweDtcclxuICBtYXJnaW4tdG9wOiAtMTBweDtcclxuICBoZWlnaHQ6IDM1MHB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDYwcHg7XHJcbiAgb3ZlcmZsb3cteTogc2Nyb2xsO1xyXG59XHJcblxyXG4jc2Nyb2xsLXRhc2s6Oi13ZWJraXQtc2Nyb2xsYmFyIHtcclxuICB3aWR0aDogNnB4O1xyXG4gIGJhY2tncm91bmQ6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMCk7XHJcbn1cclxuI3Njcm9sbC10YXNrOjotd2Via2l0LXNjcm9sbGJhci10aHVtYiB7XHJcbiAgei1pbmRleDogMTAwMDA7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2I5YjliOTtcclxufVxyXG4jc2Nyb2xsLXRhc2s6Oi13ZWJraXQtc2Nyb2xsYmFyLXRyYWNrIHtcclxuICBib3gtc2hhZG93OiBub25lO1xyXG4gIC13ZWJraXQtYm94LXNoYWRvdzogaW5zZXQgMCAwIDZweCByZ2JhKDAsIDAsIDAsIDAuMyk7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyNTUsIDI1NSwgMjU1LCAwKTtcclxufVxyXG5cclxuLmNpcmNsZS1hZGQtYnV0dG9uIHtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgYm90dG9tOiAzMHB4O1xyXG4gIHJpZ2h0OiAzMHB4O1xyXG4gIGhlaWdodDogNDBweDtcclxuICB3aWR0aDogNDBweDtcclxuICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbn1cclxuXHJcbi5lbXB0eS1zdGF0ZS10ZXh0IHtcclxuICB6LWluZGV4OiAxMDAwMDAwMDA7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIG1hcmdpbi10b3A6IDIyMHB4O1xyXG4gIGZvbnQtc2l6ZTogMThweDtcclxuICBjb2xvcjogcmdiKDE5MiwgMTkyLCAxOTIpO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG5cclxuLmVtcHR5LXRhc2sge1xyXG4gIHRvcDogLTI1MHB4O1xyXG4gIG1hcmdpbi10b3A6IDBweDtcclxufVxyXG5cclxuLmRyb3Bkb3duLWNvbnRlbnR7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIHdpZHRoOiAxODBweDtcclxuICBiYWNrZ3JvdW5kOiByZ2IoMjU1LCAyNTUsIDI1NSk7XHJcbn1cclxuXHJcbi5kcm9wZG93bi1jb250ZW50IGF7XHJcbiAgYmFja2dyb3VuZDogcmdiKDI1NSwgMjU1LCAyNTUpO1xyXG4gIG1hcmdpbjogNHB4IGF1dG87XHJcbiAgd2lkdGg6IDE2MHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxufVxyXG4uZHJvcGRvd24tY29udGVudCBhOmhvdmVye1xyXG4gIGJhY2tncm91bmQ6IHJnYigyNDgsIDI0OCwgMjQ4KTtcclxufVxyXG4uZHJvcGRvd24tY29udGVudCAjbG9nb3V0LWxpbmt7XHJcbiAgYmFja2dyb3VuZDogcmdiKDM4LCA2MCwgOTcpO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxufVxyXG5cclxuLnRpdGxlLWxpc3R7XHJcbiAgdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7XHJcbn1cclxuLnRpdGxlLXRhc2t7XHJcbiAgdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7XHJcbn1cclxuIl19 */";
     /***/
   },
 
@@ -2035,65 +2017,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js"); // import { Component, OnInit } from "@angular/core";
-    // import { TaskService } from "src/app/task.service";
-    // import { Params } from "@angular/router";
-    // import { ActivatedRoute } from "@angular/router";
-    // import { Task } from "src/app/models/task.model";
-    // import { List } from "src/app/models/list.model";
-    // @Component({
-    //   selector: "app-task-view",
-    //   templateUrl: "./task-view.component.html",
-    //   styleUrls: ["./task-view.component.scss"]
-    // })
-    // export class TaskViewComponent implements OnInit {
-    //   lists: List[];
-    //   tasks: Task[];
-    //   selectedListId: string;
-    //   constructor(
-    //     private taskService: TaskService,
-    //     private route: ActivatedRoute
-    //   ) {}
-    //   ngOnInit() {
-    //     this.route.params.subscribe((params: Params) => {
-    //       if (params.listId) {
-    //         this.selectedListId = params.listId;
-    //         this.taskService.getTasks(params.listId).subscribe((tasks: Task[]) => {
-    //           this.tasks = tasks;
-    //         });
-    //       } else {
-    //         this.tasks = undefined;
-    //       }
-    //     });
-    //     this.taskService.getLists().subscribe((lists: List[]) => {
-    //       this.lists = lists;
-    //     });
-    //   }
-    //   onTaskClick(task: Task) {
-    //     // set the class as completed
-    //     this.taskService.complete(task).subscribe(() => {
-    //       // task has been completed successfully
-    //       // console.log("Completed successfully");
-    //       task.completed = !task.completed;
-    //     });
-    //   }
-    //   onDeleteListClick() {
-    //     this.taskService.deleteList(this.selectedListId).subscribe((res: any) => {
-    //       console.log(res);
-    //     });
-    //   }
-    // }
+    var src_app_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/auth.service */
+    "./src/app/auth.service.ts");
+    /* harmony import */
 
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
 
     var TaskViewComponent =
     /*#__PURE__*/
     function () {
-      function TaskViewComponent(taskService, route, router) {
+      function TaskViewComponent(taskService, authService, route, router) {
         _classCallCheck(this, TaskViewComponent);
 
         this.taskService = taskService;
+        this.authService = authService;
         this.route = route;
         this.router = router;
       }
@@ -2101,21 +2042,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(TaskViewComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this12 = this;
+          var _this13 = this;
 
           this.route.params.subscribe(function (params) {
             if (params.listId) {
-              _this12.selectedListId = params.listId;
+              _this13.selectedListId = params.listId;
 
-              _this12.taskService.getTasks(params.listId).subscribe(function (tasks) {
-                _this12.tasks = tasks;
+              _this13.taskService.getTasks(params.listId).subscribe(function (tasks) {
+                _this13.tasks = tasks;
               });
             } else {
-              _this12.tasks = undefined;
+              _this13.tasks = undefined;
             }
           });
           this.taskService.getLists().subscribe(function (lists) {
-            _this12.lists = lists;
+            _this13.lists = lists;
           });
         }
       }, {
@@ -2131,10 +2072,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "onDeleteListClick",
         value: function onDeleteListClick() {
-          var _this13 = this;
+          var _this14 = this;
 
           this.taskService.deleteList(this.selectedListId).subscribe(function (res) {
-            _this13.router.navigate(['/lists']);
+            _this14.router.navigate(['/lists']);
 
             console.log(res);
           });
@@ -2142,14 +2083,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "onDeleteTaskClick",
         value: function onDeleteTaskClick(id) {
-          var _this14 = this;
+          var _this15 = this;
 
           this.taskService.deleteTask(this.selectedListId, id).subscribe(function (res) {
-            _this14.tasks = _this14.tasks.filter(function (val) {
+            _this15.tasks = _this15.tasks.filter(function (val) {
               return val._id !== id;
             });
             console.log(res);
           });
+        }
+      }, {
+        key: "onLogoutClick",
+        value: function onLogoutClick() {
+          this.authService.logout();
         }
       }]);
 
@@ -2160,9 +2106,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       return [{
         type: src_app_task_service__WEBPACK_IMPORTED_MODULE_2__["TaskService"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
+        type: src_app_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
       }];
     };
 
@@ -2349,85 +2297,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! rxjs/operators */
-    "./node_modules/rxjs/_esm2015/operators/index.js"); // import { Injectable } from "@angular/core";
-    // import {
-    //   HttpInterceptor,
-    //   HttpHandler,
-    //   HttpRequest,
-    //   HttpErrorResponse
-    // } from "@angular/common/http";
-    // import { Observable, throwError, empty, Subject } from "rxjs";
-    // import { AuthService } from "./auth.service";
-    // import { catchError, tap, switchMap } from "rxjs/operators";
-    // @Injectable({
-    //   providedIn: "root"
-    // })
-    // export class WebReqInterceptor implements HttpInterceptor {
-    //   constructor(private authService: AuthService) {}
-    //   refreshingAccessToken: boolean;
-    //   accessTokenRefreshed: Subject<any> = new Subject();
-    //   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<any> {
-    //     // Handle the request
-    //     request = this.addAuthHeader(request);
-    //     // call next() and handle the response
-    //     return next.handle(request).pipe(
-    //       catchError((error: HttpErrorResponse) => {
-    //         console.log(error);
-    //         if (error.status === 401) {
-    //           // 401 error - So we are Unauthorized
-    //           // refresh the access token
-    //           return this.refreshAccessToken().pipe(
-    //             switchMap(() => {
-    //               request = this.addAuthHeader(request);
-    //               return next.handle(request);
-    //             }),
-    //             catchError((err: any) => {
-    //               console.log(err);
-    //               this.authService.logout();
-    //               return empty();
-    //             })
-    //           );
-    //         }
-    //         return throwError(error);
-    //       })
-    //     );
-    //   }
-    //   refreshAccessToken() {
-    //     if (this.refreshingAccessToken) {
-    //       return new Observable(observer => {
-    //         this.accessTokenRefreshed.subscribe(() => {
-    //           // this code run when the access token is being refreshed
-    //           observer.next();
-    //           observer.complete();
-    //         });
-    //       });
-    //     } else {
-    //       this.refreshingAccessToken = true;
-    //       // we want to call a method in the auth service to send a request to refresh the access token
-    //       return this.authService.getNewAccessToken().pipe(
-    //         tap(() => {
-    //           console.log("Access Token Refreshed");
-    //           this.refreshingAccessToken = false;
-    //           this.accessTokenRefreshed.next();
-    //         })
-    //       );
-    //     }
-    //   }
-    //   addAuthHeader(request: HttpRequest<any>) {
-    //     // get the access token
-    //     const token = this.authService.getAccessToken();
-    //     if (token) {
-    //       // append the access token to the request header
-    //       return request.clone({
-    //         setHeaders: {
-    //           "x-access-token": token
-    //         }
-    //       });
-    //     }
-    //     return request;
-    //   }
-    // }
-
+    "./node_modules/rxjs/_esm2015/operators/index.js");
 
     var WebReqInterceptor =
     /*#__PURE__*/
@@ -2442,7 +2312,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(WebReqInterceptor, [{
         key: "intercept",
         value: function intercept(request, next) {
-          var _this15 = this;
+          var _this16 = this;
 
           // Handle the request
           request = this.addAuthHeader(request); // call next() and handle the response
@@ -2453,13 +2323,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             if (error.status === 401) {
               // 401 error so we are unauthorized
               // refresh the access token
-              return _this15.refreshAccessToken().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function () {
-                request = _this15.addAuthHeader(request);
+              return _this16.refreshAccessToken().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function () {
+                request = _this16.addAuthHeader(request);
                 return next.handle(request);
               }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(function (err) {
                 console.log(err);
 
-                _this15.authService.logout();
+                _this16.authService.logout();
 
                 return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["empty"])();
               }));
@@ -2471,11 +2341,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "refreshAccessToken",
         value: function refreshAccessToken() {
-          var _this16 = this;
+          var _this17 = this;
 
           if (this.refreshingAccessToken) {
             return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"](function (observer) {
-              _this16.accessTokenRefreshed.subscribe(function () {
+              _this17.accessTokenRefreshed.subscribe(function () {
                 // this code will run when the access token has been refreshed
                 observer.next();
                 observer.complete();
@@ -2486,9 +2356,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             return this.authService.getNewAccessToken().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function () {
               console.log("Access Token Refreshed!");
-              _this16.refreshingAccessToken = false;
+              _this17.refreshingAccessToken = false;
 
-              _this16.accessTokenRefreshed.next();
+              _this17.accessTokenRefreshed.next();
             }));
           }
         }
