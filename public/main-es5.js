@@ -1011,67 +1011,73 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var angular_font_awesome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/fesm2015/common.js");
+    /* harmony import */
+
+
+    var angular_font_awesome__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! angular-font-awesome */
     "./node_modules/angular-font-awesome/dist/angular-font-awesome.js");
     /* harmony import */
 
 
-    var _app_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _app_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ./app-routing.module */
     "./src/app/app-routing.module.ts");
     /* harmony import */
 
 
-    var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ./app.component */
     "./src/app/app.component.ts");
     /* harmony import */
 
 
-    var _pages_task_view_task_view_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _pages_task_view_task_view_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! ./pages/task-view/task-view.component */
     "./src/app/pages/task-view/task-view.component.ts");
     /* harmony import */
 
 
-    var _pages_new_list_new_list_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _pages_new_list_new_list_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! ./pages/new-list/new-list.component */
     "./src/app/pages/new-list/new-list.component.ts");
     /* harmony import */
 
 
-    var _pages_new_task_new_task_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var _pages_new_task_new_task_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! ./pages/new-task/new-task.component */
     "./src/app/pages/new-task/new-task.component.ts");
     /* harmony import */
 
 
-    var _pages_login_page_login_page_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var _pages_login_page_login_page_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! ./pages/login-page/login-page.component */
     "./src/app/pages/login-page/login-page.component.ts");
     /* harmony import */
 
 
-    var _web_req_interceptor__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    var _web_req_interceptor__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! ./web-req.interceptor */
     "./src/app/web-req.interceptor.ts");
     /* harmony import */
 
 
-    var _pages_signup_page_signup_page_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    var _pages_signup_page_signup_page_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
     /*! ./pages/signup-page/signup-page.component */
     "./src/app/pages/signup-page/signup-page.component.ts");
     /* harmony import */
 
 
-    var _pages_edit_list_edit_list_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    var _pages_edit_list_edit_list_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
     /*! ./pages/edit-list/edit-list.component */
     "./src/app/pages/edit-list/edit-list.component.ts");
     /* harmony import */
 
 
-    var _pages_edit_task_edit_task_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    var _pages_edit_task_edit_task_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
     /*! ./pages/edit-task/edit-task.component */
     "./src/app/pages/edit-task/edit-task.component.ts");
 
@@ -1080,14 +1086,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"], _pages_task_view_task_view_component__WEBPACK_IMPORTED_MODULE_7__["TaskViewComponent"], _pages_new_list_new_list_component__WEBPACK_IMPORTED_MODULE_8__["NewListComponent"], _pages_new_task_new_task_component__WEBPACK_IMPORTED_MODULE_9__["NewTaskComponent"], _pages_login_page_login_page_component__WEBPACK_IMPORTED_MODULE_10__["LoginPageComponent"], _pages_signup_page_signup_page_component__WEBPACK_IMPORTED_MODULE_12__["SignupPageComponent"], _pages_edit_list_edit_list_component__WEBPACK_IMPORTED_MODULE_13__["EditListComponent"], _pages_edit_task_edit_task_component__WEBPACK_IMPORTED_MODULE_14__["EditTaskComponent"]],
-      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"], angular_font_awesome__WEBPACK_IMPORTED_MODULE_4__["AngularFontAwesomeModule"]],
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"], _pages_task_view_task_view_component__WEBPACK_IMPORTED_MODULE_8__["TaskViewComponent"], _pages_new_list_new_list_component__WEBPACK_IMPORTED_MODULE_9__["NewListComponent"], _pages_new_task_new_task_component__WEBPACK_IMPORTED_MODULE_10__["NewTaskComponent"], _pages_login_page_login_page_component__WEBPACK_IMPORTED_MODULE_11__["LoginPageComponent"], _pages_signup_page_signup_page_component__WEBPACK_IMPORTED_MODULE_13__["SignupPageComponent"], _pages_edit_list_edit_list_component__WEBPACK_IMPORTED_MODULE_14__["EditListComponent"], _pages_edit_task_edit_task_component__WEBPACK_IMPORTED_MODULE_15__["EditTaskComponent"]],
+      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"], angular_font_awesome__WEBPACK_IMPORTED_MODULE_5__["AngularFontAwesomeModule"]],
       providers: [{
         provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"],
-        useClass: _web_req_interceptor__WEBPACK_IMPORTED_MODULE_11__["WebReqInterceptor"],
+        useClass: _web_req_interceptor__WEBPACK_IMPORTED_MODULE_12__["WebReqInterceptor"],
         multi: true
+      }, {
+        provide: _angular_common__WEBPACK_IMPORTED_MODULE_4__["LocationStrategy"],
+        useClass: _angular_common__WEBPACK_IMPORTED_MODULE_4__["HashLocationStrategy"]
       }],
-      bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
+      bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
     })], AppModule);
     /***/
   },
